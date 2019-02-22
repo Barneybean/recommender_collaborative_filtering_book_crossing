@@ -10,17 +10,22 @@ There are two most popular approaches to build recommender system. They are coll
 ## Techniques and Procedure
 ### Steps
 1.	Ingest data: The book ratings and user ids associated with those ratings are in different files. Therefore, a Pandas merge function was called to join the two tables. 
+
 ![Screenshot](./img/img1.png)
+
 2.	Exploratory data analysis was performed to uncover the distribution of ratings for books and ratings for users. What I discover here is that over 60% of book has 0 ratings. Readers are reluctant to rate books when they are bad so we can assume 0 rating books are generally really bad. Most books receive 5 ratings and the most rated books received 2502 ratings. 
+
 ![Screenshot](./img/img2.png)
 ![Screenshot](./img/img3.png)
 
 3.	I also evaluated the possibility to use this dataset for fitting the recommendation model by taking a look at the number of users who rated the books. And the number of participating users are substantial to build a recommendation model. 
+
 ![Screenshot](./img/img4.png)
 
 4.	Then, in order to mitigate the memory shortage caused by the massive data, the records with book rating count < 50 and user rating count < 50 were filtered based on above findings and assumptions. Number of rows were shrink down from 1,149,780 to 140,516.
 5.	According to similar performance grid search, I decided to build the recommendation system with BaselineOnly algorithm for the modeling building and EMSE came at 3.37 which is acceptable. 
 6.	Finally, a histogram of error between predicted rating and actual rating were plotted to visualize the performance. And interesting pattern is discovered here. 
+
 ![Screenshot](./img/img5.png)
 
 
